@@ -32,7 +32,6 @@ endif ( )
 add_library ( ${PROJECT_NAME} STATIC 
         ${${PROJECT_NAME}_SRCDIR}/findme.c
         ${${PROJECT_NAME}_SRCDIR}/popt.c
-        ${${PROJECT_NAME}_SRCDIR}/poptconfig.c
         ${${PROJECT_NAME}_SRCDIR}/popthelp.c
         ${${PROJECT_NAME}_SRCDIR}/poptint.c
         ${${PROJECT_NAME}_SRCDIR}/poptparse.c )
@@ -40,3 +39,9 @@ target_include_directories ( ${PROJECT_NAME} BEFORE PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}/../../resources/popt_113_include
         ${${PROJECT_NAME}_SRCDIR} )
 target_compile_definitions ( ${PROJECT_NAME} PRIVATE -DHAVE_CONFIG_H ) 
+if ( ${CMAKE_C_COMPILER_ID}x MATCHES "MSVCx" )
+    target_compile_definitions ( ${PROJECT_NAME} PRIVATE
+            -Dinline=_inline
+            -Dalloca=_alloca
+            -DX_OK=06 ) 
+endif ( )
