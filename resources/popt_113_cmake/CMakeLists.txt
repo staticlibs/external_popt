@@ -40,6 +40,9 @@ target_include_directories ( ${PROJECT_NAME} BEFORE PRIVATE
         ${${PROJECT_NAME}_SRCDIR} )
 target_compile_definitions ( ${PROJECT_NAME} PRIVATE -DHAVE_CONFIG_H ) 
 if ( ${CMAKE_C_COMPILER_ID}x MATCHES "MSVCx" )
+    target_compile_options ( ${PROJECT_NAME} PRIVATE
+            /wd4090
+            /wd4005 )
     target_compile_definitions ( ${PROJECT_NAME} PRIVATE
             -Dinline=_inline
             -Dalloca=_alloca
