@@ -16,7 +16,7 @@ cmake_minimum_required ( VERSION 2.8.12 )
 
 # project
 project ( external_popt CXX C )
-set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.13-1 )
+set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.13-2 )
 set ( ${PROJECT_NAME}_DESCRIPTION "Popt library build for Staticlibs" )
 set ( ${PROJECT_NAME}_URL https://github.com/staticlibs/external_popt.git )
 

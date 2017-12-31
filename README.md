@@ -1,6 +1,9 @@
 Popt library build for Staticlibs
 =================================
 
+[![travis](https://travis-ci.org/staticlibs/external_popt.svg?branch=master)](https://travis-ci.org/staticlibs/external_popt)
+[![appveyor](https://ci.appveyor.com/api/projects/status/github/staticlibs/external_popt?svg=true)](https://ci.appveyor.com/project/staticlibs/external-popt)
+
 This project is a part of [Staticlibs](http://staticlibs.net/).
 
 This project contains a CMake build file for building [Popt library](http://rpm5.org/files/popt/).
@@ -36,6 +39,11 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 
 Changelog
 ---------
+
+**2017-12-21**
+
+ * version 1.13-2
+ * vs2017 support
 
 **2016-10-28**
 
