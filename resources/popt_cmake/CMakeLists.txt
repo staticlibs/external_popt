@@ -16,7 +16,9 @@ cmake_minimum_required ( VERSION 2.8.12 )
 
 project ( popt C )
 
-set ( ${PROJECT_NAME}_SRCDIR ${CMAKE_CURRENT_LIST_DIR}/../../popt )
+if ( NOT DEFINED ${PROJECT_NAME}_LOOKASIDE_DIR )
+    set ( ${PROJECT_NAME}_LOOKASIDE_DIR ${CMAKE_CURRENT_LIST_DIR}/../../../lookaside_popt CACHE INTERNAL "" )
+endif ( )
 
 # check deplibs cache
 if ( STATICLIB_USE_DEPLIBS_CACHE )
@@ -30,15 +32,18 @@ if ( STATICLIB_USE_DEPLIBS_CACHE )
 endif ( )
 
 add_library ( ${PROJECT_NAME} STATIC 
-        ${${PROJECT_NAME}_SRCDIR}/findme.c
-        ${${PROJECT_NAME}_SRCDIR}/popt.c
-        ${${PROJECT_NAME}_SRCDIR}/popthelp.c
-        ${${PROJECT_NAME}_SRCDIR}/poptint.c
-        ${${PROJECT_NAME}_SRCDIR}/poptparse.c )
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/findme.c
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/popt.c
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/popthelp.c
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/poptint.c
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/poptparse.c )
+
 target_include_directories ( ${PROJECT_NAME} BEFORE PRIVATE 
-        ${CMAKE_CURRENT_LIST_DIR}/../../resources/popt_113_include
-        ${${PROJECT_NAME}_SRCDIR} )
+        ${CMAKE_CURRENT_LIST_DIR}/../../resources/popt_include
+        ${${PROJECT_NAME}_LOOKASIDE_DIR} )
+
 target_compile_definitions ( ${PROJECT_NAME} PRIVATE -DHAVE_CONFIG_H ) 
+
 if ( ${CMAKE_C_COMPILER_ID}x MATCHES "MSVCx" )
     target_compile_options ( ${PROJECT_NAME} PRIVATE
             /wd4090

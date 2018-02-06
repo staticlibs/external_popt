@@ -6,10 +6,8 @@ Popt library build for Staticlibs
 
 This project is a part of [Staticlibs](http://staticlibs.net/).
 
-This project contains a CMake build file for building [Popt library](http://rpm5.org/files/popt/).
-
-[Popt sources imported from CentOS Linux](https://github.com/ojdkbuild/lookaside_popt) are used as a submodule
-of this project.
+This project contains a CMake build file for building [Popt library](http://rpm5.org/files/popt/) that
+can be used to build sources imported from [CentOS lookaside](https://github.com/staticlibs/lookaside_popt.git).
 
 Link to [man documentation](https://linux.die.net/man/3/popt).
 
@@ -22,7 +20,8 @@ To build the library on Windows using Visual Studio 2013 Express run the followi
 Visual Studio development command prompt 
 (`C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\Tools\Shortcuts\VS2013 x86 Native Tools Command Prompt`):
 
-    git clone --recursive https://github.com/staticlibs/external_popt.git
+    git clone https://github.com/staticlibs/lookaside_popt.git
+    git clone https://github.com/staticlibs/external_popt.git
     cd external_popt
     mkdir build
     cd build
@@ -39,6 +38,11 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 
 Changelog
 ---------
+
+**2018-02-06**
+
+ * version 1.13-3
+ * drop submodule, allow to specify lookaside dir
 
 **2017-12-21**
 

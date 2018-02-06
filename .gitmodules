@@ -1,3 +1,0 @@
-[submodule "popt"]
-	path = popt
-	url = https://github.com/ojdkbuild/lookaside_popt.git
