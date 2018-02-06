@@ -160,4 +160,9 @@
 
 
 /* Define to id of used va_copy() implementation */
+#if defined (_MSC_VER) && _MSC_VER < 1700
+// https://stackoverflow.com/a/13632119
+#define __VA_COPY_USE(d, s) ((d) = (s))
+#else // c99
 #define __VA_COPY_USE __VA_COPY_USE_C99
+#endif // msvc2010
