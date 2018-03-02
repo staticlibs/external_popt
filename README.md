@@ -41,6 +41,11 @@ Changelog
 
 **2018-02-06**
 
+ * version 1.13-4
+ * vs2010 compat
+
+**2018-02-06**
+
  * version 1.13-3
  * drop submodule, allow to specify lookaside dir
 
